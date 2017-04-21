@@ -45,7 +45,29 @@ class Sphere:
                 return t
         return None
 
-    # #419end
+    def shadowHit(self, ray):
+        temp = ray.o - self.c
+        a = np.dot(ray.d, ray.d)
+        b = 2.0 * np.dot(temp, ray.d)
+        cq = np.dot(temp, temp) - np.dot(self.r, self.r)
+        disc = b * b - 4.0 * a * cq
+        if (disc < 0.0):
+            return None
+        else:
+            e = np.sqrt(disc)
+            denom = 2.0 * a
+            t = (-b - e) / denom
+            if (t > self.kEpsilon):
+                self.st = t
+                return True
+
+            t = (-1.0 * b + e)/denom
+            if(t > self.kEpsilon):
+                self.st = t
+                return True
+        return False
+
+
 
     def getNormal(self, pt):
         """ Returns unit normal of sphere at the point pt """

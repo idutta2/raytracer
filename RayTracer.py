@@ -21,8 +21,8 @@ center = np.array([0, 0, -2.5])
 s = Sphere(radius, center, np.array([255, 0, 0]))
 s1 = Sphere(radius1, center, np.array([0, 0, 255]))
 
-point = np.array([0.0, 0.5, 0.0])
-normal = np.array([1.0, 1.0, 1.0])
+point = np.array([0.0, -0.5, 0.0])
+normal = np.array([0.0, 1.0, 0.0])
 
 p = Plane(point, normal, np.array([0, 0, 255]))
 
